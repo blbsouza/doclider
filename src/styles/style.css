@@ -1,0 +1,105 @@
+:root {
+  --rgbw: rgba(255, 255, 255, 0.5)
+}
+
+html, body {
+    overflow: hidden !important;
+}
+
+.h-p {
+  height: 89vh;
+}
+
+::-webkit-scrollbar {
+  width: 5px !important;
+  height: 5px !important;
+  background-color: transparent !important;
+}
+::-moz-scrollbar {
+  width: 5px !important;
+  height: 5px !important;
+  background-color: transparent !important;
+}
+::scrollbar {
+  width: 5px !important;
+  height: 5px !important;
+  background-color: transparent !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #7266fa !important;
+  border-radius: 10px !important;
+}
+
+::-moz-scrollbar-thumb {
+  background-color: #7266fa !important;
+  border-radius: 10px !important;
+}
+
+::scrollbar-thumb {
+  background-color: #7266fa !important;
+  border-radius: 10px !important;
+}
+
+.main-border {
+  border: 0.5px solid rgba(255,255,255,0.5)
+}
+
+input[type=radio], input[type=checkbox] {
+  position: absolute;
+  opacity: 0
+}
+
+.box {
+  box-shadow: 2px 2px 5px rgba(114, 102, 250, .2),
+              -2px -2px 5px var(--rgbw);
+  cursor: pointer;
+}
+
+.btnchange:checked ~ .box {
+  box-shadow: inset 5px 5px 10px rgba(114, 102, 250, .2),
+              inset 0px 0px 5px rgba(114, 102, 250, .2),
+              inset -5px -5px 10px white,
+              inset -2px -2px 2px white;
+}
+
+.btnchange:checked ~ .box .v-icon {
+  color: #7266fa !important
+}
+.btnchange:checked ~ .box #pbox-1 {
+  color: #7266fa
+}
+
+#textarea {
+  background-color: #fff;
+  border-radius: 0;
+  font-family: /*'Arial Monospaced MT',*/ 'consolas', monospace;
+  outline: none;
+  font-size: 0.7rem;
+  line-height: 0.7rem;
+  overflow: hidden;
+  width: fit-content;
+  resize: none
+}
+
+.btn, input[type=number] {
+  width: 40px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  text-align: center;
+  background-color: transparent !important;
+  box-shadow: 2px 2px 3px rgba(114, 102, 250, .3),
+              -2px -2px 3px white !important;
+}
+.btn:hover {
+  background-color: var(--rgbw) !important;
+}
+
+.checkbox:checked ~ div .btn {
+  box-shadow: inset 2px 2px 5px rgba(114, 102, 250, .3),
+              inset -2px -2px 3px white !important;
+}

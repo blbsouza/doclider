@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOCLÍDER - Ajuda</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        html {
+            overflow: auto
+        }
+    </style>
+</head>
+<body class="is-loaded" id="help">
+    <h1>AJUDA PARA O SISTEMA DOCLÍDER</h1>
+    <div>
+        <h3>Instruções de instalação</h3>
+        <p>Pré-requisitos para instalação e uso da aplicação.</p>
+        <ul>
+            <li>Baixe a aplicação na <a href="./"><b>Página de Apresentação</b></a></li>
+            <li>Descompacte a pasta "Brdoc" no diretório <b>portal</b> do srvsaveFFF.</li>
+            <li>Abra um navegador e chame a url <b>https://srvsaveFFF/doclider/</b></li>
+            <li>Adicionar à rotina a execução diária da shell que vem junto com o programa</li>
+        </ul>
+
+        <hr>
+
+        <h3>Problemas de permissão na pasta 'relatorios'</h3>
+        <p>Quando os arquivos não são copiados para a pasta relatórios pode ser problemas de permissão. Para correção tente seguir os passos:</p>
+        <ul>
+            <li>Através do terminal, acesse a pasta doclider que você copiou para o portal que está em srvsaveFFF/files/portal.</li>
+            <li>Entre na pasta <b>cd doclider</b></li>
+            <li>Delete a pasta relatorios com <b>rm -R relatorios</b></li>
+            <li>Crie uma nova pasta com <b>mkdir relatorios</b></li>
+            <li>Dê permissão à pasta com <b>chmod 777 relatorios</b></li>
+        </ul>
+        <p>Tente executar a shell novamente ou copiar algum arquivo manualmente para a pasta.</p>
+
+        <hr>
+    </div>
+</body>
+</html>

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="shortcut icon" href="https://drive.google.com/uc?export=view&id=1CwUsBDxOabp4GKx4D_7rFcZZj9zqrdjl" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700,900" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/@mdi/font@6.x/css/materialdesignicons.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+  <meta charset="utf-8">
+  <title>DOCLÍDER - Landing Page</title>
+</head>
+<body>
+  <div class="div-load">
+    <div class="c-loader"></div>
+  </div>
+  <div id="app">
+    <v-app>
+      <v-main>
+        <v-row
+          class="ma-1 mx-2 pa-0 align-center"
+          dense
+        >
+          <v-col class="d-flex justify-center justify-md-start" cols="12" md="4" sm="12">
+            <v-img contain lazy-src="" :src="logo" max-width="32px" max-height="32px"></v-img>
+          </v-col>
+
+          <v-col class="d-flex justify-md-center justify-space-around" cols="12" md="4" sm="12">
+            <v-tooltip bottom v-for="v in btns" :key="v.l">
+              <template v-slot:activator="{ on, attrs }">
+                <v-btn
+                  v-on="on"
+                  v-bind="attrs"
+                  class="ma-0 ma-lg-1"
+                  dense
+                  elevation="0"
+                  @click="func(v.v)"
+                  width="120"
+                >{{ v.l }}</v-btn>
+              </template>
+              <span>{{ v.t }}</span>
+            </v-tooltip>
+          </v-col>
+
+          <v-col class="d-flex justify-center justify-md-end">
+              <v-btn class="indigo white--text ma-1" dense elevation="0" @click="download()">Baixar</v-btn>
+          </v-col>
+
+        </v-row>
+        
+        <v-col class="div-center">
+          <v-row style="position: relative">
+            <v-col class="d-flex flex-column align-center" cols="12" md="6" sm="12">
+              <!--<h1 class="indigo--text text-center text-h2 font-weight-bold">DOCLÍDER</h1>-->
+              <v-row dense class="justify-center">
+                <img
+                  src="https://firebasestorage.googleapis.com/v0/b/web-app-6280e.appspot.com/o/landing-page%2Fdoclider.png?alt=media&token=acbf1e0e-11d9-41b0-b08c-6df3cd7d70e3"
+                  style="width: 100%"
+                  alt="DOCLÍDER"
+                />
+              </v-row>
+              <v-col cols="12" md="8" sm="8" xs="11">
+                <p class="grey--text text--darken-1 text-center text-h5 font-weight-light">Economia, praticidade, agilidade e respeito ao meio-ambiente.</p>
+              </v-col>
+            </v-col>
+            <v-col cols="12" md="6" sm="12">
+              <div class="div-img">
+                <v-img
+                  class="hero-media-image"
+                  src="https://firebasestorage.googleapis.com/v0/b/web-app-6280e.appspot.com/o/landing-page%2Fdoclider-page.png?alt=media&token=e1967219-012e-418e-bd51-063b97cc0ad5"
+                  contain
+                />
+              </div>
+            </v-col>
+            <div class="wave-1 bg-color"></div>
+          </v-row>
+        </v-col>
+
+        <v-row class="div-center bg-color white--text text-center ma-0 pa-2">
+          <v-col cols="12" sm="12" md="4">
+            <v-card height="210" flat class="d-flex flex-column justify-space-between pa-5 white--text card">
+              <h5 class="text-h5">Casa Arrumada</h2>
+              <p class="text-caption" style="color: #ddd">Nesta nova versão foi adicionada a função para limpar caracteres dos cupons. Tudo em um clique.</p>
+              <v-icon size="60" color="white">mdi-auto-fix</v-icon>
+            </v-card>
+          </v-col>
+
+          <v-col cols="12" sm="12" md="4">
+            <v-card height="210" flat class="d-flex flex-column justify-space-between pa-5 white--text card">
+              <h5 class="text-h5">Idéia Simples, Grandes resultados</h2>
+              <p class="text-caption" style="color: #ddd">A grande vantagem do DocLíder é sem dúvidas, a economia. Com ele você consegue economizar em até 95% em impressões de relatórios.</p>
+              <v-icon size="60" color="white">mdi-sprout-outline</v-icon>
+            </v-card>
+          </v-col>
+
+          <v-col cols="12" sm="12" md="4">
+            <v-card height="210" flat class="d-flex flex-column justify-space-between pa-5 white--text card">
+              <h5 class="text-h5">Personalização rápida</h2>
+              <p class="text-caption" style="color: #ddd">Novos recursos foram adicionados para personalizar o texto da melhor forma que possa ser usado para impressão.</p>
+              <v-icon size="60" color="white">mdi-file-document-edit-outline</v-icon>
+            </v-card>
+          </v-col>
+        </v-row>
+
+        <v-row dense class="ma-0 px-1 justify-md-end justify-center align-center bg-color" style="height: 8vh;width: 100%">
+          <v-avatar tile size="40">
+            <v-img
+              :src="myLogo"
+              alt="LOGO"
+              contain
+            />
+          </v-avatar>
+          <span class="white--text text-caption mx-2">{{ new Date().getFullYear() }} - &copy; blbTech, all rights reserved</span>
+          <v-img max-width="45" max-height="45" :src="`https://chart.googleapis.com/chart?cht=qr&chs=90&chl=${lin}`" />
+        </v-row>
+        
+      </v-main>
+    </v-app>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.x/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vuetify@2.x/dist/vuetify.js"></script>
+  <script>
+    new Vue({
+      el: '#app',
+      vuetify: new Vuetify(),
+      data: () => ({
+        btns: [
+          {t: "Perguntas, Dicas, Reclamações, Feedback...", l: "Contato", v: 1},
+          {t: "Ajuda sobre instalação, etc...", l: "Ajuda", v: 2},
+        ],
+        //
+        logo: "",
+        myLogo: "",
+        phone: "(85) 9 9989-6712",
+        mail: "blbsouza11@gmail.com",
+        hel: "https://blbtech-doclider.netlify.app/help.html",
+        amo: "https://blbtech-doclider.netlify.app/",
+        down: "#",
+        lin: window.location.href
+      }),
+
+      methods: {
+        async pushJson() {
+          await fetch("https://cdn.statically.io/gh/blbsouza/cdn/main/json/web-app.json")
+          .then(j => j.json())
+          .then(r => {
+            this.phone = r.contact.phone
+            this.mail = r.contact.mail
+            this.myLogo = r.myLogo
+            this.logo = r.doclider.logo
+            this.down = r.doclider.download
+          })
+          .catch(e => console.log("ERRO: ", e))
+        },
+
+        func(v) {
+          if ( v == 1 ) {
+            this.contato()
+          } else {
+            this.help()
+          }
+        },
+
+        download() {
+          window.open(this.down)
+        },
+
+        contato() {
+          alert('Whatsapp: ' + this.phone);
+          alert('Email: '+ this.mail);
+        },
+
+        help() {
+          window.open(this.hel)
+        },
+
+        amostra() {
+          window.open(this.amo)
+        }
+      },
+
+      created() {
+        this.pushJson()
+      }
+    });
+
+    const e=document, n=e.body;
+    window.addEventListener("load", () => {
+      n.classList.add("is-loaded")
+      e.querySelector("html").style.overflow = "auto"
+    })
+  </script>
+</body>
+</html>
